@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Text Analysis</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body class="container">
+
+        <h1 class="mt-5 mb-5">Vue Text Analyzer</h1>
+
+      <div id="app" v-cloak>
+
+          <!--  <div class="wrapper"> -->
+                <div class="form" id="input">
+                  <textarea class="form control" v-model="textblock"></textarea>
+                </div>
+                <div>
+                  <button class="btn btn-primary mt-1 mb-5" v-on:click="runInput">Submit</button>
+                </div>
+
+
+                <div id="output" class="mb-5">
+                    <p># of paragraphs: {{paragraphno}}</p>
+                    <p># of sentences: {{sentenceno}} </p>
+                    <p># of words: {{wordno}}</p>
+                    <p># of characters: {{charno}}<p>
+                    <p>most frequently used character: {{mostfreq}}</p>
+                    <p>longest word: {{longestword}}</p>
+                </div>
+          <!--  </div> -->
+      </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="main.js"></script>
+
+    </body>
+</html>
