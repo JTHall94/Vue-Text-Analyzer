@@ -20,13 +20,15 @@ let app = new Vue({
 
           this.charno= this.textblock.replace(/\s/g, "").length;
 
-          this.wordno= this.textblock.length-this.charno+1;
+
 
           this.paragraphno= this.textblock.split("\n\n").length;
 
+          this.wordno= this.textblock.length-this.charno-(this.paragraphno-1)+1;
+
           this.sentenceno=0;
           for (var i=0; i<this.textblock.length; i++) {
-            if (this.textblock[i]=="."){
+            if (this.textblock[i]=="." && this.textblock[i-1] !== "."){
               this.sentenceno++;
             }
             if (this.textblock[i]=="?"){
@@ -63,7 +65,7 @@ let app = new Vue({
               longest=words[i];
             }
           }
-          this.longestword=longest.replace(/,/,'');
+          this.longestword=longest.replace(/[,.?!]/g,'');
 
 
 
