@@ -10,6 +10,8 @@ let app = new Vue({
         charno:0,
         mostfreq:'',
         longestword:'',
+        graphdata: [],
+        graphlabel: [],
         //words: [],
     },
 
@@ -56,7 +58,7 @@ let app = new Vue({
 
           }
 
-          let words=this.textblock.split(" ");
+          let words=this.textblock.replace( /\n/g, " " ).split( " " );
           let length=0;
           let longest=''
           for (var i=0; i<words.length; i++) {
