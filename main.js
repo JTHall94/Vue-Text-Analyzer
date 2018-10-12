@@ -48,7 +48,7 @@ let app = new Vue({
             }
             else {
               frequencycount[key]++;
-              if (maxkey=='' || frequencycount[key] > frequencycount[maxkey]) {
+              if (maxkey=='' | frequencycount[key] > frequencycount[maxkey]) {
                 maxkey=key;
                 this.mostfreq=maxkey;
               }
