@@ -22,8 +22,6 @@ let app = new Vue({
 
           this.charno= this.textblock.replace(/\s/g, "").length;
 
-
-
           this.paragraphno= this.textblock.split("\n\n").length;
 
           this.wordno= this.textblock.length-this.charno-(this.paragraphno-1)+1;
@@ -57,8 +55,8 @@ let app = new Vue({
             }
 
           }
-
-          let words=this.textblock.replace( /\n/g, " " ).split( " " );
+          let sanspunc=this.textblock.replace(/[,.?!]/g,'');
+          let words=sanspunc.replace( /\n/g, " " ).split( " " );
           let length=0;
           let longest=''
           for (var i=0; i<words.length; i++) {
@@ -67,7 +65,7 @@ let app = new Vue({
               longest=words[i];
             }
           }
-          this.longestword=longest.replace(/[,.?!]/g,'');
+          this.longestword=longest;
 
 
 
