@@ -10,10 +10,8 @@ let app = new Vue({
         charno:0,
         mostfreq:'',
         longestword:'',
-        graphdata: [],
-        graphlabel: [],
-        //words: [],
-    },
+
+      },
 
     methods: {
 
@@ -24,7 +22,14 @@ let app = new Vue({
 
           this.paragraphno= this.textblock.split("\n\n").length;
 
-          this.wordno= this.textblock.length-this.charno-(this.paragraphno-1)+1;
+          let tempwordno= this.textblock.replace(/[,.?!]/g,'');
+          let tempwordno2= tempwordno.replace( /\n/g, " " ).split( " " );
+          if (tempwordno2[1]=="") {
+            this.wordno=1;
+          }
+          else {
+            this.wordno=tempwordno2.length-this.paragraphno+1;
+          }
 
           this.sentenceno=0;
           for (var i=0; i<this.textblock.length; i++) {
